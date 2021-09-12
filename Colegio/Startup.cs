@@ -34,6 +34,7 @@ namespace Colegio
             services.AddDbContext<ColegioContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IAlumnoRepositorio, RepositorioAlumno>();
             services.AddScoped<IMateriaRepositorio, RepositorioMateria>();
+            services.AddScoped<IProfesorRepositorio, RepositorioProfesor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
