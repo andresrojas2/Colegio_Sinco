@@ -1,0 +1,14 @@
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\bin\Debug\net5.0\Colegio.Logica.deps.json
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\bin\Debug\net5.0\Colegio.Logica.dll
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\bin\Debug\net5.0\ref\Colegio.Logica.dll
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\bin\Debug\net5.0\Colegio.Logica.pdb
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\bin\Debug\net5.0\Colegio.Models.dll
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\bin\Debug\net5.0\Colegio.Models.pdb
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logica.GeneratedMSBuildEditorConfig.editorconfig
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logica.AssemblyInfoInputs.cache
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logica.AssemblyInfo.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logica.csproj.CoreCompileInputs.cache
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logica.csproj.CopyComplete
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logica.dll
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\ref\Colegio.Logica.dll
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logica.pdb

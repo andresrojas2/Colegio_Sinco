@@ -1,0 +1,9 @@
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Dtos\bin\Debug\netcoreapp3.1\Colegio.Dtos.deps.json
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Dtos\bin\Debug\netcoreapp3.1\Colegio.Dtos.dll
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Dtos\bin\Debug\netcoreapp3.1\Colegio.Dtos.pdb
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Dtos\obj\Debug\netcoreapp3.1\Colegio.Dtos.csprojAssemblyReference.cache
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Dtos\obj\Debug\netcoreapp3.1\Colegio.Dtos.AssemblyInfoInputs.cache
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Dtos\obj\Debug\netcoreapp3.1\Colegio.Dtos.AssemblyInfo.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Dtos\obj\Debug\netcoreapp3.1\Colegio.Dtos.csproj.CoreCompileInputs.cache
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Dtos\obj\Debug\netcoreapp3.1\Colegio.Dtos.dll
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Dtos\obj\Debug\netcoreapp3.1\Colegio.Dtos.pdb

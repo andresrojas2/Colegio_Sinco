@@ -1,0 +1,12 @@
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\bin\Debug\netcoreapp3.1\Colegio.Models.deps.json
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\bin\Debug\netcoreapp3.1\Colegio.Models.runtimeconfig.json
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\bin\Debug\netcoreapp3.1\Colegio.Models.runtimeconfig.dev.json
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\bin\Debug\netcoreapp3.1\Colegio.Models.dll
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\bin\Debug\netcoreapp3.1\Colegio.Models.pdb
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\obj\Debug\netcoreapp3.1\Colegio.Models.csprojAssemblyReference.cache
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\obj\Debug\netcoreapp3.1\Colegio.Models.AssemblyInfoInputs.cache
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\obj\Debug\netcoreapp3.1\Colegio.Models.AssemblyInfo.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\obj\Debug\netcoreapp3.1\Colegio.Models.csproj.CoreCompileInputs.cache
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\obj\Debug\netcoreapp3.1\Colegio.Models.dll
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\obj\Debug\netcoreapp3.1\Colegio.Models.pdb
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Models\obj\Debug\netcoreapp3.1\Colegio.Models.genruntimeconfig.cache

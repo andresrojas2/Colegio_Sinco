@@ -1,6 +1,11 @@
+using Colegio.Logica.Contratos;
+using Colegio.Logica.Repositorios;
+using Colegio.Models.Models;
+using Colegio.Profiles;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +29,10 @@ namespace Colegio
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddAutoMapper(typeof(ColegioProfile));
+            services.AddDbContext<ColegioContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IAlumnoRepositorio, RepositorioAlumno>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +59,7 @@ namespace Colegio
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Alumnos}/{action=Index}/{id?}");
             });
         }
     }
