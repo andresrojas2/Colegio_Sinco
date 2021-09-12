@@ -33,6 +33,7 @@ namespace Colegio
             services.AddAutoMapper(typeof(ColegioProfile));
             services.AddDbContext<ColegioContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IAlumnoRepositorio, RepositorioAlumno>();
+            services.AddScoped<IMateriaRepositorio, RepositorioMateria>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -12,3 +12,4 @@ G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logi
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logica.dll
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\ref\Colegio.Logica.dll
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logica.pdb
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio.Logica\obj\Debug\net5.0\Colegio.Logica.csprojAssemblyReference.cache

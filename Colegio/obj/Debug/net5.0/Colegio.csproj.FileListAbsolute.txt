@@ -157,3 +157,7 @@ G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Alumnos
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Alumnos\Delete.cshtml.g.cs
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Alumnos\Edit.cshtml.g.cs
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Materias\Index.cshtml.g.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Materias\Create.cshtml.g.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Materias\Delete.cshtml.g.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Materias\Edit.cshtml.g.cs

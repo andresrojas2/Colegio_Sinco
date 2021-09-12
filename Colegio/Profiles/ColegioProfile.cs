@@ -15,6 +15,9 @@ namespace Colegio.Profiles
 
             this.CreateMap<Alumno, AlumnoDto>()
             .ReverseMap();
+
+            this.CreateMap<Materium, MateriaDto>()
+            .ReverseMap();
         }
     }
 }
