@@ -165,3 +165,7 @@ G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Profeso
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Profesores\Create.cshtml.g.cs
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Profesores\Delete.cshtml.g.cs
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Profesores\Edit.cshtml.g.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\MatriculaMaterias\Index.cshtml.g.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\MatriculaMaterias\Create.cshtml.g.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\MatriculaMaterias\Edit.cshtml.g.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\MatriculaMaterias\Delete.cshtml.g.cs

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Colegio.Dtos.MatriculaMateriaDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@ViewData["vwEstudianteNombreFull"]</h1>
+
+<p>
+
+    @Html.ActionLink("",
+ "Create",
+ "MatriculaMaterias",
+ new { EstudianteId = @ViewData["vwEstudianteId"] },
+ new { @class = "btn btn-primary fas fa-plus-circle" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Periodo)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Materia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Periodo)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Materia.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nota)
+                </td>
+                <td>
+                    @Html.ActionLink(" ",
+                      "Edit",
+                      "MatriculaMaterias",
+                      new
+                           {
+                               id = item.Id,
+                          EstudianteId = item.AlumnoId
+                           },
+                      new { @class = "btn btn-primary fas fa-edit btn-sm" })
+
+
+                    @Html.ActionLink(" ",
+                      "Delete",
+                      "MatriculaMaterias",
+                      new
+                       {
+                           id = item.Id,
+                           EstudianteId = item.AlumnoId
+                       },
+                     new { @class = "btn btn-primary fas fa-trash btn-sm" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

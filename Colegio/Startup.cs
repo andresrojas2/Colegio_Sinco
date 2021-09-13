@@ -35,6 +35,7 @@ namespace Colegio
             services.AddScoped<IAlumnoRepositorio, RepositorioAlumno>();
             services.AddScoped<IMateriaRepositorio, RepositorioMateria>();
             services.AddScoped<IProfesorRepositorio, RepositorioProfesor>();
+            services.AddScoped<IMatriculaMateriaRepositorio, RepositorioMatriculaMateria>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

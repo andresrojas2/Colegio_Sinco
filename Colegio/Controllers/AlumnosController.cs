@@ -79,7 +79,7 @@ namespace Colegio.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
-
+            
             var empleado = await _alumno.ObtenerAsync(id);
             return View(_mapper.Map<AlumnoDto>(empleado));
         }
@@ -112,5 +112,11 @@ namespace Colegio.Controllers
             }
 
         }
+
+        public RedirectToActionResult AddMateria(int Id)
+        {
+            return RedirectToAction("Index", "MatriculaMaterias", new { EstudianteId = Id });
+        }
+
     }
 }

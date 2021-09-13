@@ -21,6 +21,10 @@ namespace Colegio.Profiles
 
             this.CreateMap<Profesor, ProfesorDto>()
             .ReverseMap();
+
+
+            this.CreateMap<MatriculaMaterium, MatriculaMateriaDto>()
+            .ReverseMap();
         }
     }
 }

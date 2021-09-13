@@ -10,7 +10,7 @@ namespace Colegio.Dtos
         public int? MateriaId { get; set; }
         public int? AlumnoId { get; set; }
         public int? Periodo { get; set; }
-        public int? Nota { get; set; }
+        public double? Nota { get; set; }
 
         public virtual AlumnoDto Alumno { get; set; }
         public virtual MateriaDto Materia { get; set; }

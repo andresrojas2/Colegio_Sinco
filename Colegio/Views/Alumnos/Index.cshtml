@@ -55,8 +55,9 @@
                 @Html.DisplayFor(modelItem => item.Telefono)
             </td>
             <td>
+                <a asp-action="AddMateria" asp-route-id="@item.Id">Materias</a> |
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a> 
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }

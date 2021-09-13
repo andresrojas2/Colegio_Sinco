@@ -11,7 +11,7 @@ namespace Colegio.Models.Models
         public int? MateriaId { get; set; }
         public int? AlumnoId { get; set; }
         public int? Periodo { get; set; }
-        public int? Nota { get; set; }
+        public double? Nota { get; set; }
 
         public virtual Alumno Alumno { get; set; }
         public virtual Materium Materia { get; set; }
