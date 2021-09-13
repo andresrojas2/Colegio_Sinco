@@ -92,10 +92,13 @@ namespace Colegio.Controllers
                     return View("Index", _mapper.Map<List<MatriculaMateriaDto>>(matriculas));
                 }
 
+                await CargarControlesAsync((int)MatriculaDto.AlumnoId);
+
                 return View(MatriculaDto);
             }
             catch (Exception ex)
             {
+                await CargarControlesAsync((int)MatriculaDto.AlumnoId);
                 return View();
             }
         }
@@ -151,6 +154,7 @@ namespace Colegio.Controllers
         public async Task<IActionResult> DeleteConfirmed(int Id, int AlumnoId)
         {
             await _matriculaMateriaRepositorio.Eliminar(Id);
+            ViewData["vwEstudianteId"] = AlumnoId;
 
             var matricula = await _matriculaMateriaRepositorio.ObtenerXAlumnoAsync(AlumnoId);
             return View("Index", _mapper.Map<List<MatriculaMateriaDto>>(matricula));

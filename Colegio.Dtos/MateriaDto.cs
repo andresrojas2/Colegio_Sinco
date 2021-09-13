@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Colegio.Dtos
@@ -13,7 +14,13 @@ namespace Colegio.Dtos
         }
 
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Código es obligatorio")]
+        [Display(Name = "Código")]
         public int? Codigo { get; set; }
+
+        [Required(ErrorMessage = "Nombre es obligatorio")]
+        [Display(Name = "Nombre")]
         public string Nombre { get; set; }
 
         public virtual ICollection<MatriculaMateriaDto> MatriculaMateria { get; set; }
