@@ -1482,6 +1482,16 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Colegio.Dtos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Colegio.Dtos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Colegio.Dtos.dll": {}
+        }
+      },
       "Colegio.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -5707,6 +5717,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Colegio.Dtos/1.0.0": {
+      "type": "project",
+      "path": "../Colegio.Dtos/Colegio.Dtos.csproj",
+      "msbuildProject": "../Colegio.Dtos/Colegio.Dtos.csproj"
+    },
     "Colegio.Models/1.0.0": {
       "type": "project",
       "path": "../Colegio.Models/Colegio.Models.csproj",
@@ -5715,6 +5730,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Colegio.Dtos >= 1.0.0",
       "Colegio.Models >= 1.0.0"
     ]
   },
@@ -5745,6 +5761,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "G:\\Proyecto\\PruebasTecnicas\\Colegio\\Colegio.Dtos\\Colegio.Dtos.csproj": {
+              "projectPath": "G:\\Proyecto\\PruebasTecnicas\\Colegio\\Colegio.Dtos\\Colegio.Dtos.csproj"
+            },
             "G:\\Proyecto\\PruebasTecnicas\\Colegio\\Colegio.Models\\Colegio.Models.csproj": {
               "projectPath": "G:\\Proyecto\\PruebasTecnicas\\Colegio\\Colegio.Models\\Colegio.Models.csproj"
             }

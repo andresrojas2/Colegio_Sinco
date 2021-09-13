@@ -44,16 +44,14 @@
                          "Index",
                          "Alumnos",
                          null,
-                         new { @class = "list-group-item list-group-item-action bg-light fas fa-users" })
-
+                         new { @class = "list-group-item list-group-item-action bg-light fas fa-address-card" })
 
 
                 @Html.ActionLink("Materias",
                          "Index",
                          "Materias",
                          null,
-                         new { @class = "list-group-item list-group-item-action bg-light fas fa-users" })
-
+                         new { @class = "list-group-item list-group-item-action bg-light fas fa-book" })
 
 
                 @Html.ActionLink("Profesores",
@@ -62,6 +60,11 @@
                          null,
                          new { @class = "list-group-item list-group-item-action bg-light fas fa-users" })
 
+                @Html.ActionLink("Reporte notas",
+                         "ReporteNotas",
+                         "MatriculaMaterias",
+                         null,
+                         new { @class = "list-group-item list-group-item-action bg-light fas fa-file" })
 
 
             </div>

@@ -14,6 +14,7 @@ namespace Colegio.Profiles
         {
 
             this.CreateMap<Alumno, AlumnoDto>()
+            .ForMember(u => u.ValidacionDelete, p => p.MapFrom(m => m.MatriculaMateria.Any()))
             .ReverseMap();
 
             this.CreateMap<Materium, MateriaDto>()

@@ -2045,6 +2045,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Colegio.Dtos": "1.0.0",
           "Colegio.Models": "1.0.0"
         },
         "compile": {

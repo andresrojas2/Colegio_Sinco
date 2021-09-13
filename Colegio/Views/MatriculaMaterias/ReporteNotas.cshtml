@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Colegio.Dtos.ReporteCalificacionesDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Reporte notas</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Periodo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdentificacionAlumno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCompletoAlumno)
+            </th>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoMateria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreMateria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdentificacionProfesor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCompletoProfesor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aprueba)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Periodo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentificacionAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCompletoAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoMateria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreMateria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentificacionProfesor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCompletoProfesor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aprueba)
+            </td>
+            <td>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

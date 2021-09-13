@@ -82,6 +82,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "G:\\Proyecto\\PruebasTecnicas\\Colegio\\Colegio.Dtos\\Colegio.Dtos.csproj": {
+                "projectPath": "G:\\Proyecto\\PruebasTecnicas\\Colegio\\Colegio.Dtos\\Colegio.Dtos.csproj"
+              },
               "G:\\Proyecto\\PruebasTecnicas\\Colegio\\Colegio.Models\\Colegio.Models.csproj": {
                 "projectPath": "G:\\Proyecto\\PruebasTecnicas\\Colegio\\Colegio.Models\\Colegio.Models.csproj"
               }

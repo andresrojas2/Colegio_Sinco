@@ -33,6 +33,7 @@ namespace Colegio.Dtos
         [Display(Name = "Teléfono")]
         public long? Telefono { get; set; }
 
+        public bool ValidacionDelete { get; set; }
 
         public int? MateriaId { get; set; }
 

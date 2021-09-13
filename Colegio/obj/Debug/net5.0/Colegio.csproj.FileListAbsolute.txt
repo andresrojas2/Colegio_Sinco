@@ -169,3 +169,4 @@ G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\Matricu
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\MatriculaMaterias\Create.cshtml.g.cs
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\MatriculaMaterias\Edit.cshtml.g.cs
 G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\MatriculaMaterias\Delete.cshtml.g.cs
+G:\Proyecto\PruebasTecnicas\Colegio\Colegio\obj\Debug\net5.0\Razor\Views\MatriculaMaterias\ReporteNotas.cshtml.g.cs

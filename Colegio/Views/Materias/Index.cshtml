@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Colegio.Dtos.MateriaDto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Materias";
 }
 
-<h1>Index</h1>
+<h1>Materias</h1>
 
 <p>
-    <a asp-action="Create">Crear</a>
+    <a asp-action="Create" class="btn btn-primary fas fa-plus-circle"></a>
 </p>
 <table class="table">
     <thead>
@@ -31,8 +31,8 @@
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary fas fa-edit btn-sm"></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary fas fa-trash btn-sm"></a>
             </td>
         </tr>
 }

@@ -24,8 +24,8 @@ namespace Colegio.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var empleado = await _alumno.ObtenerTodosAsync();
-            return View(_mapper.Map<List<AlumnoDto>>(empleado));
+            var alumno = await _alumno.ObtenerTodosAsync();
+            return View(_mapper.Map<List<AlumnoDto>>(alumno));
         }
 
         public IActionResult Create()

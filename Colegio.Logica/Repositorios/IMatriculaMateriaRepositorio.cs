@@ -11,5 +11,9 @@ namespace Colegio.Logica.Repositorios
     {
 
         Task<IEnumerable<MatriculaMaterium>> ObtenerXAlumnoAsync(int EstudianteId);
+
+        Task<bool> ValidarMateriaPeriodo(int AlumnoId, int MateriaId, int Periodo);
+
+        Task<IEnumerable<MatriculaMaterium>> Other();
     }
 }

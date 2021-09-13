@@ -57,7 +57,8 @@ namespace Colegio.Logica.Contratos
         public async Task<IEnumerable<MatriculaMaterium>> ObtenerTodosAsync()
         {
             return await _dbSet.Include(u => u.Materia)
-                               .Include(u => u.Alumno).ToListAsync();
+                               .Include(u => u.Alumno)
+                               .Include(u => u.Materia).ToListAsync();
         }
 
         public async Task<IEnumerable<MatriculaMaterium>> ObtenerXAlumnoAsync(int AlumnoId)
@@ -65,6 +66,20 @@ namespace Colegio.Logica.Contratos
             return await _dbSet.Include(u => u.Materia)
                                .Include(u => u.Alumno)
                                .Where(c => c.AlumnoId == AlumnoId).ToListAsync();
+        }
+
+        public async Task<bool> ValidarMateriaPeriodo(int AlumnoId, int MateriaId, int Periodo)
+        {
+            return await _dbSet.AnyAsync(c => c.AlumnoId == AlumnoId && c.MateriaId == MateriaId && c.Periodo == Periodo);
+        }
+
+        public async Task<IEnumerable<MatriculaMaterium>> Other()
+        {
+            return await (from _matri in _context.MatriculaMateria
+                          join _alumn in _context.Alumnos on _matri.AlumnoId equals _alumn.Id
+                          join _mater in _context.Materia on _matri.MateriaId equals _mater.Id
+                          join _prof in _context.Profesors on _mater.Id equals _prof.Id
+                          select _matri).ToListAsync();
         }
     }
 }

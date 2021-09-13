@@ -17,9 +17,9 @@ namespace Colegio.Controllers
         private IMateriaRepositorio _materia;
         private IMapper _mapper;
 
-        public ProfesoresController(IMapper mapper, IProfesorRepositorio empleado, IMateriaRepositorio materia)
+        public ProfesoresController(IMapper mapper, IProfesorRepositorio profesor, IMateriaRepositorio materia)
         {
-            _profesor = empleado;
+            _profesor = profesor;
             _materia = materia;
             _mapper = mapper;
         }
@@ -38,8 +38,8 @@ namespace Colegio.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var empleado = await _profesor.ObtenerTodosAsync();
-            return View(_mapper.Map<List<ProfesorDto>>(empleado));
+            var profesor = await _profesor.ObtenerTodosAsync();
+            return View(_mapper.Map<List<ProfesorDto>>(profesor));
         }
 
         public async Task<IActionResult> Create()
@@ -61,8 +61,8 @@ namespace Colegio.Controllers
         {
             await _profesor.Eliminar(Id);
 
-            var empleado = await _profesor.ObtenerTodosAsync();
-            return View("Index", _mapper.Map<List<ProfesorDto>>(empleado));
+            var profesor = await _profesor.ObtenerTodosAsync();
+            return View("Index", _mapper.Map<List<ProfesorDto>>(profesor));
         }
 
 
@@ -75,11 +75,11 @@ namespace Colegio.Controllers
                 {
 
 
-                    var empleado = _mapper.Map<Profesor>(ProfesorDto);
-                    await _profesor.Agregar(empleado);
+                    var profesor = _mapper.Map<Profesor>(ProfesorDto);
+                    await _profesor.Agregar(profesor);
 
-                    var empleados = await _profesor.ObtenerTodosAsync();
-                    return View("Index", _mapper.Map<List<ProfesorDto>>(empleados));
+                    var profesors = await _profesor.ObtenerTodosAsync();
+                    return View("Index", _mapper.Map<List<ProfesorDto>>(profesors));
                 }
 
                 return View(ProfesorDto);
@@ -95,8 +95,8 @@ namespace Colegio.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             await CargarControlesAsync();
-            var empleado = await _profesor.ObtenerAsync(id);
-            return View(_mapper.Map<ProfesorDto>(empleado));
+            var profesor = await _profesor.ObtenerAsync(id);
+            return View(_mapper.Map<ProfesorDto>(profesor));
         }
 
         [HttpPost]
@@ -109,11 +109,11 @@ namespace Colegio.Controllers
                 if (ModelState.IsValid)
                 {
 
-                    var empleado = _mapper.Map<Profesor>(ProfesorDto);
-                    var resultado = await _profesor.Actualizar(empleado);
+                    var profesor = _mapper.Map<Profesor>(ProfesorDto);
+                    var resultado = await _profesor.Actualizar(profesor);
 
-                    var empleados = await _profesor.ObtenerTodosAsync();
-                    return View("Index", _mapper.Map<List<ProfesorDto>>(empleados));
+                    var profesors = await _profesor.ObtenerTodosAsync();
+                    return View("Index", _mapper.Map<List<ProfesorDto>>(profesors));
 
                 }
                 await CargarControlesAsync();

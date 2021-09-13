@@ -19,7 +19,7 @@ namespace Colegio.Logica.Contratos
             _context = context;
             this._dbSet = _context.Set<Alumno>();
         }
-     
+
         public async Task<bool> Actualizar(Alumno entity)
         {
             _dbSet.Attach(entity);
@@ -51,7 +51,7 @@ namespace Colegio.Logica.Contratos
 
         public async Task<IEnumerable<Alumno>> ObtenerTodosAsync()
         {
-            return await _dbSet.ToListAsync();
+            return await _dbSet.Include(u => u.MatriculaMateria).ToListAsync();
         }
 
     }

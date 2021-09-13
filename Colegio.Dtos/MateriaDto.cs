@@ -25,5 +25,6 @@ namespace Colegio.Dtos
 
         public virtual ICollection<MatriculaMateriaDto> MatriculaMateria { get; set; }
         public virtual ICollection<ProfesorDto> Profesors { get; set; }
+
     }
 }

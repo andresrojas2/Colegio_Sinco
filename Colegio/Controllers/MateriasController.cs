@@ -15,17 +15,17 @@ namespace Colegio.Controllers
         private IMateriaRepositorio _materia;
         private IMapper _mapper;
 
-        public MateriasController(IMapper mapper, IMateriaRepositorio empleado)
+        public MateriasController(IMapper mapper, IMateriaRepositorio materia)
         {
-            _materia = empleado;
+            _materia = materia;
             _mapper = mapper;
         }
 
 
         public async Task<IActionResult> Index()
         {
-            var empleado = await _materia.ObtenerTodosAsync();
-            return View(_mapper.Map<List<MateriaDto>>(empleado));
+            var materia = await _materia.ObtenerTodosAsync();
+            return View(_mapper.Map<List<MateriaDto>>(materia));
         }
 
         public IActionResult Create()
@@ -47,8 +47,8 @@ namespace Colegio.Controllers
         {
             await _materia.Eliminar(Id);
 
-            var empleado = await _materia.ObtenerTodosAsync();
-            return View("Index", _mapper.Map<List<MateriaDto>>(empleado));
+            var materia = await _materia.ObtenerTodosAsync();
+            return View("Index", _mapper.Map<List<MateriaDto>>(materia));
         }
 
 
@@ -61,11 +61,11 @@ namespace Colegio.Controllers
                 {
 
 
-                    var empleado = _mapper.Map<Materium>(MateriaDto);
-                    await _materia.Agregar(empleado);
+                    var materia = _mapper.Map<Materium>(MateriaDto);
+                    await _materia.Agregar(materia);
 
-                    var empleados = await _materia.ObtenerTodosAsync();
-                    return View("Index", _mapper.Map<List<MateriaDto>>(empleados));
+                    var materias = await _materia.ObtenerTodosAsync();
+                    return View("Index", _mapper.Map<List<MateriaDto>>(materias));
                 }
 
                 return View(MateriaDto);
@@ -80,8 +80,8 @@ namespace Colegio.Controllers
         public async Task<IActionResult> Edit(int id)
         {
 
-            var empleado = await _materia.ObtenerAsync(id);
-            return View(_mapper.Map<MateriaDto>(empleado));
+            var materia = await _materia.ObtenerAsync(id);
+            return View(_mapper.Map<MateriaDto>(materia));
         }
 
         [HttpPost]
@@ -94,11 +94,11 @@ namespace Colegio.Controllers
                 if (ModelState.IsValid)
                 {
 
-                    var empleado = _mapper.Map<Materium>(MateriaDto);
-                    var resultado = await _materia.Actualizar(empleado);
+                    var materia = _mapper.Map<Materium>(MateriaDto);
+                    var resultado = await _materia.Actualizar(materia);
 
-                    var empleados = await _materia.ObtenerTodosAsync();
-                    return View("Index", _mapper.Map<List<MateriaDto>>(empleados));
+                    var materias = await _materia.ObtenerTodosAsync();
+                    return View("Index", _mapper.Map<List<MateriaDto>>(materias));
 
                 }
 

@@ -1830,6 +1830,7 @@
       },
       "Colegio.Logica/1.0.0": {
         "dependencies": {
+          "Colegio.Dtos": "1.0.0",
           "Colegio.Models": "1.0.0"
         },
         "runtime": {

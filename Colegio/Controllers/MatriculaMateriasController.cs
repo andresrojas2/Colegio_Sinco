@@ -18,16 +18,18 @@ namespace Colegio.Controllers
         private IMateriaRepositorio _materia;
         private IAlumnoRepositorio _alumno;
         private IMatriculaMateriaRepositorio _matriculaMateriaRepositorio;
+        private IReporteCalificacionRepositorio _reporteCalificacionRepositorio;
         private IMapper _mapper;
 
 
 
-        public MatriculaMateriasController(IMapper mapper, IProfesorRepositorio empleado, IMateriaRepositorio materia, IMatriculaMateriaRepositorio matriculaMateriaRepositorio, IAlumnoRepositorio alumno)
+        public MatriculaMateriasController(IMapper mapper, IProfesorRepositorio empleado, IMateriaRepositorio materia, IMatriculaMateriaRepositorio matriculaMateriaRepositorio, IAlumnoRepositorio alumno, IReporteCalificacionRepositorio reporteCalificacionRepositorio)
         {
             _profesor = empleado;
             _materia = materia;
             _mapper = mapper;
             _alumno = alumno;
+            _reporteCalificacionRepositorio = reporteCalificacionRepositorio;
             _matriculaMateriaRepositorio = matriculaMateriaRepositorio;
         }
 
@@ -84,6 +86,13 @@ namespace Colegio.Controllers
 
                 if (ModelState.IsValid)
                 {
+
+                    if (await _matriculaMateriaRepositorio.ValidarMateriaPeriodo((int)MatriculaDto.AlumnoId, (int)MatriculaDto.MateriaId, (int)MatriculaDto.Periodo))
+                    {
+                        await CargarControlesAsync((int)MatriculaDto.AlumnoId);
+                        ModelState.AddModelError("Periodo", "El estudiante ya tiene asignada la materia seleccionada para el perdiodo ingresado");
+                        return View(MatriculaDto);
+                    }
 
                     var matricula = _mapper.Map<MatriculaMaterium>(MatriculaDto);
                     await _matriculaMateriaRepositorio.Agregar(matricula);
@@ -158,6 +167,12 @@ namespace Colegio.Controllers
 
             var matricula = await _matriculaMateriaRepositorio.ObtenerXAlumnoAsync(AlumnoId);
             return View("Index", _mapper.Map<List<MatriculaMateriaDto>>(matricula));
+        }
+
+        public async Task<IActionResult> ReporteNotas()
+        {
+            var reporte = await _reporteCalificacionRepositorio.ReporteCalificacion();
+            return View(reporte);
         }
 
     }
