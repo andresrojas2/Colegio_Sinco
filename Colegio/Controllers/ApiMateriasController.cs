@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Colegio.Dtos;
 using Colegio.Logica.Contratos;
-using Colegio.Logica.Repositorios;
 using Colegio.Models.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,26 +13,26 @@ namespace Colegio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApiProfesores : ControllerBase
+    public class ApiMateriasController : ControllerBase
     {
-        private IProfesorRepositorio _profesor;
+        private IMateriaRepositorio _materiaRepositorio;
         private readonly IMapper _mapper;
 
-        public ApiProfesores(IProfesorRepositorio usuariosRepositorio, IMapper mapper)
+        public ApiMateriasController(IMateriaRepositorio usuariosRepositorio, IMapper mapper)
         {
-            _profesor = usuariosRepositorio;
+            _materiaRepositorio = usuariosRepositorio;
             _mapper = mapper;
         }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<IEnumerable<ProfesorDto>>> Get()
+        public async Task<ActionResult<IEnumerable<MateriaDto>>> Get()
         {
             try
             {
-                var clientes = await _profesor.ObtenerTodosAsync();
-                return _mapper.Map<List<ProfesorDto>>(clientes);
+                var clientes = await _materiaRepositorio.ObtenerTodosAsync();
+                return _mapper.Map<List<MateriaDto>>(clientes);
             }
             catch (Exception ex)
             {
@@ -44,19 +43,19 @@ namespace Colegio.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Profesor>> Post(ProfesorDto ProfesorDto)
+        public async Task<ActionResult<Materium>> Post(MateriaDto MateriaDto)
         {
             try
             {
-                var profesor = _mapper.Map<Profesor>(ProfesorDto);
+                var materia = _mapper.Map<Materium>(MateriaDto);
 
-                var nuevaCliente = await _profesor.Agregar(profesor);
+                var nuevaCliente = await _materiaRepositorio.Agregar(materia);
                 if (nuevaCliente == null)
                 {
                     return BadRequest();
                 }
 
-                var nuevaOrdenDto = _mapper.Map<ProfesorDto>(nuevaCliente);
+                var nuevaOrdenDto = _mapper.Map<MateriaDto>(nuevaCliente);
                 return CreatedAtAction(nameof(Post), new { id = nuevaOrdenDto.Id }, nuevaOrdenDto);
 
             }
@@ -73,7 +72,7 @@ namespace Colegio.Controllers
         {
             try
             {
-                var resultado = await _profesor.Eliminar(id);
+                var resultado = await _materiaRepositorio.Eliminar(id);
                 if (!resultado)
                 {
                     return BadRequest();
@@ -91,21 +90,21 @@ namespace Colegio.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ProfesorDto>> Put(int id, [FromBody] ProfesorDto ProfesorDto)
+        public async Task<ActionResult<MateriaDto>> Put(int id, [FromBody] MateriaDto MateriaDto)
         {
 
-            if (ProfesorDto == null)
+            if (MateriaDto == null)
                 return NotFound();
 
-            var profesor = _mapper.Map<Profesor>(ProfesorDto);
-            profesor.Id = id;
-            var resultado = await _profesor.Actualizar(profesor);
+            var materia = _mapper.Map<Materium>(MateriaDto);
+            materia.Id = id;
+            var resultado = await _materiaRepositorio.Actualizar(materia);
 
             if (!resultado)
                 return BadRequest();
 
 
-            return ProfesorDto;
+            return MateriaDto;
 
         }
     }

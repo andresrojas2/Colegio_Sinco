@@ -7,10 +7,10 @@ namespace Colegio.Dtos
 {
     public class ProfesorDto
     {
-        public ProfesorDto()
-        {
-            ProfesorAsignaturas = new HashSet<ProfesorAsignaturaDto>();
-        }
+        //public ProfesorDto()
+        //{
+        //    ProfesorAsignaturas = new HashSet<ProfesorAsignaturaDto>();
+        //}
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Identificación es obligatorio")]
@@ -39,6 +39,6 @@ namespace Colegio.Dtos
         [Display(Name = "Teléfono")]
         public long? Telefono { get; set; }
 
-        public virtual ICollection<ProfesorAsignaturaDto> ProfesorAsignaturas { get; set; }
+        //public virtual ICollection<ProfesorAsignaturaDto> ProfesorAsignaturas { get; set; }
     }
 }
