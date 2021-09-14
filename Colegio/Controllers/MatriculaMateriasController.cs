@@ -82,7 +82,7 @@ namespace Colegio.Controllers
         {
             try
             {
-
+                await cargarDatosAsync((int)MatriculaDto.AlumnoId);
                 ViewData["vwEstudianteId"] = MatriculaDto.AlumnoId.ToString();
 
                 if (ModelState.IsValid)
@@ -125,7 +125,7 @@ namespace Colegio.Controllers
         public async Task<IActionResult> Edit(MatriculaMateriaDto MatriculaDto)
         {
             ViewData["vwEstudianteId"] = MatriculaDto.AlumnoId.ToString();
-
+            await cargarDatosAsync((int)MatriculaDto.AlumnoId);
             try
             {
                 if (ModelState.IsValid)

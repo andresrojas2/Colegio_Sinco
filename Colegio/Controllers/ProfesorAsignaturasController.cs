@@ -16,9 +16,6 @@ namespace Colegio.Controllers
     {
         private IProfesorRepositorio _profesor;
         private IMateriaRepositorio _materia;
-        private IAlumnoRepositorio _alumno;
-        private IMatriculaMateriaRepositorio _matriculaMateriaRepositorio;
-        private IReporteCalificacionRepositorio _reporteCalificacionRepositorio;
         private IProfesorAsignaturaRepositorio  _profesorAsignaturaRepositorio;
         private IMapper _mapper;
 
@@ -29,9 +26,6 @@ namespace Colegio.Controllers
             _profesor = empleado;
             _materia = materia;
             _mapper = mapper;
-            _alumno = alumno;
-            _reporteCalificacionRepositorio = reporteCalificacionRepositorio;
-            _matriculaMateriaRepositorio = matriculaMateriaRepositorio;
             _profesorAsignaturaRepositorio = profesorAsignaturaRepositorio;
         }
 
@@ -81,7 +75,7 @@ namespace Colegio.Controllers
         {
             try
             {
-
+                await cargarDatosAsync((int)AsignaturaDto.ProfesorId);
                 ViewData["vwProfesorId"] = AsignaturaDto.ProfesorId.ToString();
 
                 if (ModelState.IsValid)
@@ -124,7 +118,7 @@ namespace Colegio.Controllers
         public async Task<IActionResult> Edit(ProfesorAsignaturaDto AsignaturaDto)
         {
             ViewData["vwProfesorId"] = AsignaturaDto.ProfesorId.ToString();
-
+            await cargarDatosAsync((int)AsignaturaDto.ProfesorId);
             try
             {
                 if (ModelState.IsValid)
@@ -177,11 +171,6 @@ namespace Colegio.Controllers
             var asignatura = await _profesorAsignaturaRepositorio.ObtenerXProfesorAsync(ProfesorId);
             return View("Index", _mapper.Map<List<ProfesorAsignaturaDto>>(asignatura));
         }
-
-        public async Task<IActionResult> ReporteNotas()
-        {
-            var reporte = await _reporteCalificacionRepositorio.ReporteCalificacion();
-            return View(reporte);
-        }
+       
     }
 }

@@ -15,5 +15,7 @@ namespace Colegio.Logica.Contratos
 
         Task<bool> ValidarMateria(int MateriaId);
 
+        Task<bool> EliminarXProfesor(int ProfesorId);
+
     }
 }

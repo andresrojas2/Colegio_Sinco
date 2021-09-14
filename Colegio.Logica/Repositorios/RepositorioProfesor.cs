@@ -42,9 +42,28 @@ namespace Colegio.Logica.Repositorios
 
         public async Task<bool> Eliminar(int id)
         {
-            var entity = await _dbSet.SingleOrDefaultAsync(u => u.Id == id);
-            _dbSet.Remove(entity);
-            return (await _context.SaveChangesAsync() > 0 ? true : false);
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+
+                    RepositorioProfesorAsignatura ob = new RepositorioProfesorAsignatura(_context);
+                    await ob.EliminarXProfesor(id);
+
+                    var entity = await _dbSet.SingleOrDefaultAsync(u => u.Id == id);
+                    _dbSet.Remove(entity);
+
+                    int inFlag =  await _context.SaveChangesAsync();
+
+                    transaction.Commit();
+                    return (inFlag > 0 ? true : false);
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw new Exception("Ocurrió un error en la inserción");
+                }
+            }
         }
 
         public async Task<Profesor> ObtenerAsync(int id)

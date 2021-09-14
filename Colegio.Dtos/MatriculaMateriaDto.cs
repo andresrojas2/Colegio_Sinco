@@ -23,7 +23,7 @@ namespace Colegio.Dtos
         public int? Periodo { get; set; }
 
         [Required(ErrorMessage = "Nota es obligatorio")]
-        [Display(Name = "Nota")]
+        [Display(Name = "Calificación final")]
         [Range(typeof(double), "0", "5", ErrorMessage = "Nota debe ser un valor de 0 a 5")]
         public double? Nota { get; set; }
 

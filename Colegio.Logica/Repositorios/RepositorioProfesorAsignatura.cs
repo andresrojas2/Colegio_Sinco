@@ -42,6 +42,13 @@ namespace Colegio.Logica.Repositorios
             return (await _context.SaveChangesAsync() > 0 ? true : false);
         }
 
+        public async Task<bool> EliminarXProfesor(int ProfesorId)
+        {
+            var entity = await _dbSet.Where(u => u.ProfesorId == ProfesorId).ToListAsync();
+            _dbSet.RemoveRange(entity);
+            return (await _context.SaveChangesAsync() > 0 ? true : false);
+        }
+
         public async Task<ProfesorAsignatura> ObtenerAsync(int id)
         {
             return await _dbSet.Include(u => u.Materia)
