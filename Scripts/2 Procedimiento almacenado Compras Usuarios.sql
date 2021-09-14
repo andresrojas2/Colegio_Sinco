@@ -1,5 +1,15 @@
-DECLARE @xml_usuarios XML, @xml_compras XML, @xml_itemsIva XML 
-SET @xml_usuarios = ' <Data> <Usuario><Id>14</Id><Nombre>Juan</Nombre></Usuario> <Usuario><Id>17</Id><Nombre>Maria</Nombre></Usuario> <Usuario><Id>25</Id><Nombre>Carlos</Nombre></Usuario> <Usuario><Id>15</Id><Nombre>Fernanda</Nombre></Usuario> </Data>' SET @xml_compras = ' <Data> <Item><Usuario>14</Usuario><Producto>78</Producto><Valor>300</Valor></Item> <Item><Usuario>17</Usuario><Producto>23</Producto><Valor>568</Valor></Item> <Item><Usuario>17</Usuario><Producto>99</Producto><Valor>350</Valor></Item> <Item><Usuario>14</Usuario><Producto>99</Producto><Valor>107</Valor></Item> <Item><Usuario>25</Usuario><Producto>23</Producto><Valor>425</Valor></Item> </Data>' SET @xml_itemsIva = ' <Data> <Producto><IdProducto>23</IdProducto><Porcentaje>0.16</Porcentaje></Producto> <Producto><IdProducto>99</IdProducto><Porcentaje>0.19</Porcentaje></Producto> </Data>'
+/*-----------------------------------------------------------------------------------------------------------------------------------------
+* Procedimiento			: spComprasUsuario
+* Descripción			: Consulta compras usuario
+*---------------------------------------------------------------------------------------------------------------------------------------*/
+create procedure [dbo].[spComprasUsuario]
+@xml_usuarios XML,
+@xml_compras XML,
+@xml_itemsIva XML
+as
+set nocount on
+set lock_timeout 3000
+
 
 declare @nId int
 
@@ -55,13 +65,11 @@ exec sp_xml_removedocument @nId
 
 select usu.Id,
 	   usu.Nombre,
-	   coalesce(sum(com.Valor),'0.00') as Valor_Total,
-	   sum(com.Valor*coalesce(iva.Porcentaje,0)) Iva
+	   cast(coalesce(sum(com.Valor),'0.00') as decimal(10,2)) as Valor_Total,
+	   cast(coalesce(sum(com.Valor*coalesce(iva.Porcentaje,0)),0) as decimal(10,2)) Iva
 from @tUsuarios usu
 left join @tCompras com on usu.Id = com.Usuario
 left join @tIva iva on iva.IdProducto = com.Producto
-
-
 group by usu.Id,
 	     usu.Nombre
 order by 1
