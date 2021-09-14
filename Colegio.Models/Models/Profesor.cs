@@ -7,6 +7,11 @@ namespace Colegio.Models.Models
 {
     public partial class Profesor
     {
+        public Profesor()
+        {
+            ProfesorAsignaturas = new HashSet<ProfesorAsignatura>();
+        }
+
         public int Id { get; set; }
         public long? Identificacion { get; set; }
         public string Nombre { get; set; }
@@ -14,8 +19,7 @@ namespace Colegio.Models.Models
         public int? Edad { get; set; }
         public string Direccion { get; set; }
         public long? Telefono { get; set; }
-        public int? MateriaId { get; set; }
 
-        public virtual Materium Materia { get; set; }
+        public virtual ICollection<ProfesorAsignatura> ProfesorAsignaturas { get; set; }
     }
 }

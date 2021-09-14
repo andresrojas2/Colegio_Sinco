@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Colegio.Dtos.ProfesorAsignaturaDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@ViewData["vwProfesorNombreFull"]</h1>
+
+<p>
+
+    @Html.ActionLink("",
+ "Create",
+ "ProfesorAsignaturas",
+ new { ProfesorId = @ViewData["vwProfesorId"] },
+ new { @class = "btn btn-primary fas fa-plus-circle" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Materia)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materia.Nombre)
+            </td>
+            
+            <td>
+                @Html.ActionLink(" ",
+                  "Edit",
+                  "ProfesorAsignaturas",
+                  new
+                  {
+                      id = item.Id,
+                      ProfesorId = item.ProfesorId
+                  },
+                  new { @class = "btn btn-primary fas fa-edit btn-sm" })
+
+
+                @Html.ActionLink(" ",
+                  "Delete",
+                  "ProfesorAsignaturas",
+                  new
+                  {
+                      id = item.Id,
+                      ProfesorId = item.ProfesorId
+                  },
+                 new { @class = "btn btn-primary fas fa-trash btn-sm" })
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

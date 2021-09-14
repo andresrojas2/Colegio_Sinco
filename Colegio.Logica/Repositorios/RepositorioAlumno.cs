@@ -1,4 +1,5 @@
-﻿using Colegio.Logica.Repositorios;
+﻿using Colegio.Logica.Contratos;
+using Colegio.Logica.Repositorios;
 using Colegio.Models.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,24 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Colegio.Logica.Contratos
+namespace Colegio.Logica.Repositorios
 {
-    public class RepositorioProfesor : IProfesorRepositorio
+    public class RepositorioAlumno : IAlumnoRepositorio
     {
         private ColegioContext _context;
-        private DbSet<Profesor> _dbSet;
+        private DbSet<Alumno> _dbSet;
 
-        public RepositorioProfesor(ColegioContext context)
+        public RepositorioAlumno(ColegioContext context)
         {
             _context = context;
-            this._dbSet = _context.Set<Profesor>();
+            this._dbSet = _context.Set<Alumno>();
         }
-        //public List<Cliente> ConsultarClientes()
-        //{
-        //    return _context.Clientes.ToList();
-        //}
 
-        public async Task<bool> Actualizar(Profesor entity)
+        public async Task<bool> Actualizar(Alumno entity)
         {
             _dbSet.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
@@ -32,7 +29,7 @@ namespace Colegio.Logica.Contratos
             return await _context.SaveChangesAsync() > 0 ? true : false;
         }
 
-        public async Task<Profesor> Agregar(Profesor entity)
+        public async Task<Alumno> Agregar(Alumno entity)
         {
             _dbSet.Add(entity);
             await _context.SaveChangesAsync();
@@ -46,16 +43,16 @@ namespace Colegio.Logica.Contratos
             return (await _context.SaveChangesAsync() > 0 ? true : false);
         }
 
-        public async Task<Profesor> ObtenerAsync(int id)
+        public async Task<Alumno> ObtenerAsync(int id)
         {
-            return await _dbSet.Include(u => u.Materia).SingleOrDefaultAsync(c => c.Id == id);
+            return await _dbSet.SingleOrDefaultAsync(c => c.Id == id);
         }
 
 
 
-        public async Task<IEnumerable<Profesor>> ObtenerTodosAsync()
+        public async Task<IEnumerable<Alumno>> ObtenerTodosAsync()
         {
-            return await _dbSet.Include(u => u.Materia).ToListAsync();
+            return await _dbSet.Include(u => u.MatriculaMateria).ToListAsync();
         }
 
     }

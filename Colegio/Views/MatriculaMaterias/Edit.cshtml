@@ -18,10 +18,12 @@
                 <select asp-for="MateriaId" class="form-control" asp-items="ViewBag.MateriaId"></select>
                 <span asp-validation-for="MateriaId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="AlumnoId" class="control-label"></label>
-                <select asp-for="AlumnoId" class="form-control" asp-items="ViewBag.AlumnoId"></select>
-                <span asp-validation-for="AlumnoId" class="text-danger"></span>
+            <div class="auto" id="auto" style="display: none">
+                <div class="form-group">
+                    <label asp-for="AlumnoId" class="control-label"></label>
+                    <select asp-for="AlumnoId" class="form-control" asp-items="ViewBag.AlumnoId"></select>
+                    <span asp-validation-for="AlumnoId" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Periodo" class="control-label"></label>

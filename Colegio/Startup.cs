@@ -18,6 +18,9 @@ namespace Colegio
 {
     public class Startup
     {
+
+        readonly string MiCors = "MiCors"; //para que los servicios de elemento cruzado (tipo de acceso por cros cruzado)
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,6 +33,18 @@ namespace Colegio
         {
             services.AddControllersWithViews();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MiCors,
+                                  builder => {
+                                      builder.WithHeaders("*"); //permite recibir cabeceras
+                                      builder.WithOrigins("*"); //permite que los servicios sean llamado desde diferentes lugares (origen de datos)
+                                      builder.WithMethods("*"); //permite metodo put y delete
+                                  });
+
+
+            });
+
             services.AddAutoMapper(typeof(ColegioProfile));
             services.AddDbContext<ColegioContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IAlumnoRepositorio, RepositorioAlumno>();
@@ -37,6 +52,7 @@ namespace Colegio
             services.AddScoped<IProfesorRepositorio, RepositorioProfesor>();
             services.AddScoped<IMatriculaMateriaRepositorio, RepositorioMatriculaMateria>();
             services.AddScoped<IReporteCalificacionRepositorio, RepositorioReporteCalificacion>();
+            services.AddScoped<IProfesorAsignaturaRepositorio, RepositorioProfesorAsignatura > ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +68,9 @@ namespace Colegio
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCors(MiCors); //permite que los servicios sean llamado desde diferentes lugares
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

@@ -37,7 +37,7 @@ namespace Colegio.Dtos
         public string NombreCompletoAlumno { get; set; }
 
         [Display(Name = "Identificación del profesor")]
-        public long IdentificacionProfesor { get; set; }
+        public long? IdentificacionProfesor { get; set; }
 
         [Display(Name = "Nombre del profesor")]
         public string NombreCompletoProfesor { get; set; }

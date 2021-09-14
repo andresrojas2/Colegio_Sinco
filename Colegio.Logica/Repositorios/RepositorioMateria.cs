@@ -1,4 +1,5 @@
-﻿using Colegio.Logica.Repositorios;
+﻿using Colegio.Logica.Contratos;
+using Colegio.Logica.Repositorios;
 using Colegio.Models.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,20 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Colegio.Logica.Contratos
+namespace Colegio.Logica.Repositorios
 {
-    public class RepositorioAlumno : IAlumnoRepositorio
+    public class RepositorioMateria : IMateriaRepositorio
     {
         private ColegioContext _context;
-        private DbSet<Alumno> _dbSet;
+        private DbSet<Materium> _dbSet;
 
-        public RepositorioAlumno(ColegioContext context)
+        public RepositorioMateria(ColegioContext context)
         {
             _context = context;
-            this._dbSet = _context.Set<Alumno>();
+            this._dbSet = _context.Set<Materium>();
         }
 
-        public async Task<bool> Actualizar(Alumno entity)
+        public async Task<bool> Actualizar(Materium entity)
         {
             _dbSet.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
@@ -28,7 +29,7 @@ namespace Colegio.Logica.Contratos
             return await _context.SaveChangesAsync() > 0 ? true : false;
         }
 
-        public async Task<Alumno> Agregar(Alumno entity)
+        public async Task<Materium> Agregar(Materium entity)
         {
             _dbSet.Add(entity);
             await _context.SaveChangesAsync();
@@ -42,18 +43,17 @@ namespace Colegio.Logica.Contratos
             return (await _context.SaveChangesAsync() > 0 ? true : false);
         }
 
-        public async Task<Alumno> ObtenerAsync(int id)
+        public async Task<Materium> ObtenerAsync(int id)
         {
             return await _dbSet.SingleOrDefaultAsync(c => c.Id == id);
         }
 
 
 
-        public async Task<IEnumerable<Alumno>> ObtenerTodosAsync()
+        public async Task<IEnumerable<Materium>> ObtenerTodosAsync()
         {
-            return await _dbSet.Include(u => u.MatriculaMateria).ToListAsync();
+            return await _dbSet.ToListAsync();
         }
 
     }
 }
-

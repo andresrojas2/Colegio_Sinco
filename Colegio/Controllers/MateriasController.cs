@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Colegio.Dtos;
+using Colegio.Logica.Contratos;
 using Colegio.Logica.Repositorios;
 using Colegio.Models.Models;
 using Microsoft.AspNetCore.Mvc;

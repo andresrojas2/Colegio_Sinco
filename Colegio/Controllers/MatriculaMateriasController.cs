@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Colegio.Dtos;
+using Colegio.Logica.Contratos;
 using Colegio.Logica.Repositorios;
 using Colegio.Models.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -130,6 +131,13 @@ namespace Colegio.Controllers
                 if (ModelState.IsValid)
                 {
 
+                    if (await _matriculaMateriaRepositorio.ValidarMateriaPeriodo((int)MatriculaDto.AlumnoId, (int)MatriculaDto.MateriaId, (int)MatriculaDto.Periodo, MatriculaDto.Id))
+                    {
+                        await CargarControlesAsync((int)MatriculaDto.AlumnoId);
+                        ModelState.AddModelError("Periodo", "El estudiante ya tiene asignada la materia seleccionada para el perdiodo ingresado");
+                        return View(MatriculaDto);
+                    }
+
                     var matricula = _mapper.Map<MatriculaMaterium>(MatriculaDto);
                     var resultado = await _matriculaMateriaRepositorio.Actualizar(matricula);
 
@@ -164,6 +172,8 @@ namespace Colegio.Controllers
         {
             await _matriculaMateriaRepositorio.Eliminar(Id);
             ViewData["vwEstudianteId"] = AlumnoId;
+
+            await cargarDatosAsync(AlumnoId);
 
             var matricula = await _matriculaMateriaRepositorio.ObtenerXAlumnoAsync(AlumnoId);
             return View("Index", _mapper.Map<List<MatriculaMateriaDto>>(matricula));

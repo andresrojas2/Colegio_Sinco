@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Colegio.Logica.Repositorios
+namespace Colegio.Logica.Contratos
 {
     public interface IRepositorioGenerico<T> where T : class
     {

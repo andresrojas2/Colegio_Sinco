@@ -10,7 +10,7 @@ namespace Colegio.Models.Models
         public Materium()
         {
             MatriculaMateria = new HashSet<MatriculaMaterium>();
-            Profesors = new HashSet<Profesor>();
+            ProfesorAsignaturas = new HashSet<ProfesorAsignatura>();
         }
 
         public int Id { get; set; }
@@ -18,6 +18,6 @@ namespace Colegio.Models.Models
         public string Nombre { get; set; }
 
         public virtual ICollection<MatriculaMaterium> MatriculaMateria { get; set; }
-        public virtual ICollection<Profesor> Profesors { get; set; }
+        public virtual ICollection<ProfesorAsignatura> ProfesorAsignaturas { get; set; }
     }
 }

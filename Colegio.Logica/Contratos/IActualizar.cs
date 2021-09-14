@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Colegio.Logica.Repositorios
+namespace Colegio.Logica.Contratos
 {
-    public interface IObtenerAsync<T> where T : class
+    public interface IActualizar<T> where T : class
     {
-        Task<T> ObtenerAsync(int id);
+        Task<bool> Actualizar(T entity);
     }
 }

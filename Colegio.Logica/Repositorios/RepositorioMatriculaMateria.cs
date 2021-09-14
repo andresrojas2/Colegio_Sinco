@@ -1,4 +1,5 @@
-﻿using Colegio.Logica.Repositorios;
+﻿using Colegio.Logica.Contratos;
+using Colegio.Logica.Repositorios;
 using Colegio.Models.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Colegio.Logica.Contratos
+namespace Colegio.Logica.Repositorios
 {
     public class RepositorioMatriculaMateria : IMatriculaMateriaRepositorio
     {
@@ -19,11 +20,7 @@ namespace Colegio.Logica.Contratos
             _context = context;
             this._dbSet = _context.Set<MatriculaMaterium>();
         }
-        //public List<Cliente> ConsultarClientes()
-        //{
-        //    return _context.Clientes.ToList();
-        //}
-
+   
         public async Task<bool> Actualizar(MatriculaMaterium entity)
         {
             _dbSet.Attach(entity);
@@ -68,9 +65,12 @@ namespace Colegio.Logica.Contratos
                                .Where(c => c.AlumnoId == AlumnoId).ToListAsync();
         }
 
-        public async Task<bool> ValidarMateriaPeriodo(int AlumnoId, int MateriaId, int Periodo)
+        public async Task<bool> ValidarMateriaPeriodo(int AlumnoId, int MateriaId, int Periodo, int? Id = null)
         {
-            return await _dbSet.AnyAsync(c => c.AlumnoId == AlumnoId && c.MateriaId == MateriaId && c.Periodo == Periodo);
+            if (Id == null)
+                return await _dbSet.AnyAsync(c => c.AlumnoId == AlumnoId && c.MateriaId == MateriaId && c.Periodo == Periodo);
+            else
+                return await _dbSet.AnyAsync(c => c.AlumnoId == AlumnoId && c.MateriaId == MateriaId && c.Periodo == Periodo && c.Id != Id);
         }
 
         public async Task<IEnumerable<MatriculaMaterium>> Other()

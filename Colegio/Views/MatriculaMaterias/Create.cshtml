@@ -1,12 +1,12 @@
 ﻿@model Colegio.Dtos.MatriculaMateriaDto
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear";
 }
 
-<h1>Create</h1>
+<h1>Crear</h1>
 
-<h4>MatriculaMaterium</h4>
+<h4>Matricula</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -16,9 +16,11 @@
                 <label asp-for="MateriaId" class="control-label"></label>
                 <select asp-for="MateriaId" class="form-control" asp-items="ViewBag.MateriaId"></select>
             </div>
-            <div class="form-group">
-                <label asp-for="AlumnoId" class="control-label"></label>
-                <select asp-for="AlumnoId" class="form-control" asp-items="ViewBag.AlumnoId"></select>
+            <div class="auto" id="auto" style="display: none">
+                <div class="form-group">
+                    <label asp-for="AlumnoId" class="control-label"></label>
+                    <select asp-for="AlumnoId" class="form-control" asp-items="ViewBag.AlumnoId"></select>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Periodo" class="control-label"></label>

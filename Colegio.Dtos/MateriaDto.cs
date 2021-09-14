@@ -9,8 +9,8 @@ namespace Colegio.Dtos
     {
         public MateriaDto()
         {
-            MatriculaMateria = new HashSet<MatriculaMateriaDto>();
-            Profesors = new HashSet<ProfesorDto>();
+            //MatriculaMateria = new HashSet<MatriculaMateriaDto>();
+            //Profesors = new HashSet<ProfesorDto>();
         }
 
         public int Id { get; set; }
@@ -23,8 +23,8 @@ namespace Colegio.Dtos
         [Display(Name = "Nombre")]
         public string Nombre { get; set; }
 
-        public virtual ICollection<MatriculaMateriaDto> MatriculaMateria { get; set; }
-        public virtual ICollection<ProfesorDto> Profesors { get; set; }
+        //public virtual ICollection<MatriculaMateriaDto> MatriculaMateria { get; set; }
+        //public virtual ICollection<ProfesorDto> Profesors { get; set; }
 
     }
 }

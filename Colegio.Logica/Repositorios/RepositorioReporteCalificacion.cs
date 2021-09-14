@@ -1,4 +1,5 @@
 ﻿using Colegio.Dtos;
+using Colegio.Logica.Contratos;
 using Colegio.Logica.Repositorios;
 using Colegio.Models.Models;
 using Microsoft.Data.SqlClient;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Colegio.Logica.Contratos
+namespace Colegio.Logica.Repositorios
 {
     public class RepositorioReporteCalificacion : IReporteCalificacionRepositorio
     {
@@ -61,8 +62,8 @@ namespace Colegio.Logica.Contratos
                 NombreMateria = (string)reader["NombreMateria"],
                 IdentificacionAlumno = (long)reader["IdentificacionAlumno"],
                 NombreCompletoAlumno = (string)reader["NombreCompletoAlumno"],
-                IdentificacionProfesor = (long)reader["IdentificacionProfesor"],
-                NombreCompletoProfesor = (string)reader["NombreCompletoProfesor"],
+                IdentificacionProfesor = Convert.IsDBNull(reader["IdentificacionProfesor"]) ? null : (long)reader["IdentificacionProfesor"],
+                NombreCompletoProfesor = Convert.IsDBNull(reader["NombreCompletoProfesor"]) ? null : (string)reader["NombreCompletoProfesor"],
                 Aprueba = (string)reader["Aprueba"]
 
             };
